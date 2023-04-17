@@ -8,7 +8,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: ${props => props.theme.blue}
+    color: ${props => props.theme.blue};
+    font-size: 0.875rem;
+    text-decoration: none;
   }
 
   a:hover {
