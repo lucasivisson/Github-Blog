@@ -1,11 +1,14 @@
-import cover from '../../assets/cover.svg'
 import { Outlet } from 'react-router-dom'
+import cover from '../../assets/cover.svg'
+import { DefaultLayoutContainer, OutletContainer } from './style'
 
 export function DefaultLayout() {
   return (
-    <>
+    <DefaultLayoutContainer>
       <img src={cover}/>
-      <Outlet />
-    </>
+      <OutletContainer>
+        <Outlet/>
+      </OutletContainer>
+    </DefaultLayoutContainer>
   )
 }
