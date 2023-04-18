@@ -7,7 +7,6 @@ export const HeaderContainer = styled.header`
   padding: 2rem;
   border-radius: 0.6rem;
   gap: 2rem;
-  width: 60rem;
   margin-bottom: 5rem;
 
   img {
