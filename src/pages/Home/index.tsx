@@ -1,6 +1,7 @@
-import { Post } from "../components/Post";
-import { Profile } from "../components/Profile";
-import { SearchForm } from "../components/SearchForm";
+
+import { Profile } from "./components/Profile";
+import { SearchForm } from "./components/SearchForm";
+import { SummaryPost } from "./components/SummaryPost";
 import { HomeContainer, MainContainer } from "./styles";
 
 export function Home() {
@@ -9,10 +10,10 @@ export function Home() {
       <Profile/>
       <SearchForm/>
       <MainContainer>
-        <Post/>
-        <Post/>
-        <Post/>
-        <Post/>
+        <SummaryPost/>
+        <SummaryPost/>
+        <SummaryPost/>
+        <SummaryPost/>
       </MainContainer>
     </HomeContainer>
   )

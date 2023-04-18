@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PostContainer = styled.div`
+export const SummaryPostContainer = styled.div`
   width: 48.5%;
   border-radius: 0.6rem;
   background: ${props => props.theme["base-post"]};
@@ -17,7 +17,7 @@ export const PostContainer = styled.div`
   }
 `
 
-export const TitlePostContainer = styled.div`
+export const TitleSummaryPostContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
