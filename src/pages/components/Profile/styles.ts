@@ -21,6 +21,15 @@ export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  span {
+    line-height: 160%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `
 
 export const TitleContainer = styled.div`

@@ -11,7 +11,7 @@ export function Profile() {
         <div>
           <TitleContainer>
             <h2>Cameron Williamson</h2>
-              <a href="">GITHUB <FontAwesomeIcon icon={faArrowUpRightFromSquare}/></a>
+            <a href="">GITHUB <FontAwesomeIcon icon={faArrowUpRightFromSquare}/></a>
           </TitleContainer>
           <span>Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</span>
         </div>
