@@ -1,4 +1,3 @@
-import { text } from "@fortawesome/fontawesome-svg-core";
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
