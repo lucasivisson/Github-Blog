@@ -5,6 +5,7 @@ import { SummaryPost } from "./components/SummaryPost";
 import { HomeContainer, MainContainer } from "./styles";
 
 export function Home() {
+
   return (
     <HomeContainer>
       <Profile/>
