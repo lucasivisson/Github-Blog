@@ -1,6 +1,11 @@
 import { SummaryPostContainer, TitleSummaryPostContainer } from "./styles";
 
-export function SummaryPost() {
+export interface IssuesProps {
+  issueId: string;
+  body: string;
+}
+
+export function SummaryPost({ issueId, body }: IssuesProps) {
   return (
     <SummaryPostContainer>
       <TitleSummaryPostContainer>

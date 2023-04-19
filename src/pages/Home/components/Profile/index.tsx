@@ -15,21 +15,11 @@ export interface ProfileProps {
   login: string;
 }
 
-export interface IssuesProps {
-  issueId: string;
-  body: string;
-}
-
 export function Profile() {
   const [profile, setProfile] = useState<ProfileProps>({} as ProfileProps);
-  const [issues, setIssues] = useState<IssuesProps[]>({} as IssuesProps[]);
 
-  async function loadHomePage() {
-    const [ responseProfile, responseIssues ] = await Promise.all([
-      await api.get('users/lucasivisson'),
-      await api.get(`search/issues?q=%20repo:lucasivisson/Github-Blog`)
-    ]);
-
+  async function loadProfile() {
+    const responseProfile = await api.get('users/lucasivisson');
     const profileObject: ProfileProps = {
       avatar_url: responseProfile.data.avatar_url || '',
       name: responseProfile.data.name || '',
@@ -39,20 +29,10 @@ export function Profile() {
       login: responseProfile.data.login || '',
     }
     setProfile(profileObject);
-
-    let issuesArray: IssuesProps[] = [];
-    for(let issue of responseIssues.data.items) {
-      const issueObject: IssuesProps = {
-        issueId: issue.number,
-        body: issue.body || '',
-      }
-      issuesArray.push(issueObject);
-    }
-    setIssues(issuesArray);
   }
 
   useEffect(() => {
-    loadHomePage();
+    loadProfile();
   }, [])
 
   return (
