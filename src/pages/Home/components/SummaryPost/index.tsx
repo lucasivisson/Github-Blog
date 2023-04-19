@@ -8,6 +8,9 @@ export interface IssuesProps {
 }
 
 export function SummaryPost({ issueId, body, createdAt }: IssuesProps) {
+  console.log(new Intl.RelativeTimeFormat(createdAt));
+  console.log(createdAt);
+
   let strings = []
   const stringsWithoutBackslashR = body.split('\r');
   for(let string of stringsWithoutBackslashR) {
@@ -23,7 +26,7 @@ export function SummaryPost({ issueId, body, createdAt }: IssuesProps) {
       break;
     }
   }
-  
+
   return (
     <SummaryPostContainer>
       <TitleSummaryPostContainer>
