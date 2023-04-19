@@ -9,6 +9,7 @@ import { SummaryPost } from "./components/SummaryPost";
 export interface IssuesProps {
   issueId: string;
   body: string;
+  createdAt: string;
 }
 
 export function Home() {
@@ -22,11 +23,11 @@ export function Home() {
       const issueObject: IssuesProps = {
         issueId: issue.number,
         body: issue.body || '',
+        createdAt: issue.created_at || new Date().toISOString(),
       }
       issuesArray.push(issueObject);
     }
     setIssues([...issuesArray]);
-    console.log(issues)
   }
 
   useEffect(() => {
@@ -38,8 +39,8 @@ export function Home() {
       <Profile/>
       <SearchForm/>
       <MainContainer>
-        {issues && issues.map(issue => {
-          return <SummaryPost issueId={issue.issueId} body={issue.body}/>
+        {issues.length > 0 && issues.map(issue => {
+          return <SummaryPost issueId={issue.issueId} body={issue.body} createdAt={issue.createdAt}/>
         })}
       </MainContainer>
     </HomeContainer>
