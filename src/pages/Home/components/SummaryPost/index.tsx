@@ -27,7 +27,7 @@ export function SummaryPost({ issueId, body, createdAt }: IssuesProps) {
   }
 
   return (
-    <SummaryPostContainer to='dasdas'>
+    <SummaryPostContainer to={`post/${issueId}`}>
       <TitleSummaryPostContainer>
         <span>
           <ReactMarkdown>

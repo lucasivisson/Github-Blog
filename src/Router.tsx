@@ -20,7 +20,7 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<DefaultLayout/>}>
       <Route path="" element={<Home/>}></Route>
-      <Route path="/post/:postId" element={<Post/>}></Route>
+      <Route path="post/:postId" element={<Post/>}></Route>
     </Route>
   )
 )
