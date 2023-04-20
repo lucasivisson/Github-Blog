@@ -17,7 +17,6 @@ export function Home() {
 
   async function loadIssues() {
     const responseIssues = await api.get(`search/issues?q=%20repo:lucasivisson/Github-Blog`);
-    console.log(responseIssues.data.items);
     let issuesArray: IssuesProps[] = [];
     for(let issue of responseIssues.data.items) {
       const issueObject: IssuesProps = {
@@ -40,7 +39,7 @@ export function Home() {
       <SearchForm/>
       <MainContainer>
         {issues.length > 0 && issues.map(issue => {
-          return <SummaryPost issueId={issue.issueId} body={issue.body} createdAt={issue.createdAt}/>
+          return <SummaryPost key={issue.issueId} issueId={issue.issueId} body={issue.body} createdAt={issue.createdAt}/>
         })}
       </MainContainer>
     </HomeContainer>
