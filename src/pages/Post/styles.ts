@@ -10,6 +10,16 @@ export const HeaderContainer = styled.header`
   margin-bottom: 2rem;
 `
 
+export const HeaderContainerSpinner = styled.header`
+  background-color: ${props => props.theme["base-profile"]};
+  border-radius: 0.6rem;
+  height: 11rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+`
+
 export const LinksContainer = styled.div`
   display: flex;
   justify-content: space-between;

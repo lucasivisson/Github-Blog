@@ -14,6 +14,15 @@ export const HeaderContainer = styled.header`
   }
 `
 
+export const HeaderContainerSpinner = styled.header`
+  background-color: ${props => props.theme["base-profile"]};
+  height: 14rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+`;
+
 export const InfoContainer = styled.div`
   width: 100%;
   height: 10rem;
