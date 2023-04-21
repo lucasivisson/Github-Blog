@@ -7,7 +7,8 @@ import { api } from "../../lib/axios";
 import { SummaryPost } from "./components/SummaryPost";
 
 export interface IssuesProps {
-  issueId: string;
+  title: string;
+  issueId: number;
   body: string;
   createdAt: string;
 }
@@ -23,6 +24,7 @@ export function Home() {
         issueId: issue.number,
         body: issue.body || '',
         createdAt: issue.created_at || new Date().toISOString(),
+        title: issue.title || ''
       }
       issuesArray.push(issueObject);
     }
@@ -39,7 +41,7 @@ export function Home() {
       <SearchForm/>
       <MainContainer>
         {issues.length > 0 && issues.map(issue => {
-          return <SummaryPost key={issue.issueId} issueId={issue.issueId} body={issue.body} createdAt={issue.createdAt}/>
+          return <SummaryPost key={issue.issueId} issueId={issue.issueId} body={issue.body} createdAt={issue.createdAt} title={issue.title}/>
         })}
       </MainContainer>
     </HomeContainer>
