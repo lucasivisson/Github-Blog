@@ -7,10 +7,10 @@ export const HeaderContainer = styled.header`
   padding: 2rem;
   border-radius: 0.6rem;
   gap: 1.5rem;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 `
 
-export const TitleContainer = styled.div`
+export const LinksContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `
@@ -19,6 +19,9 @@ export const InfoContainer = styled.div`
   span {
     margin-bottom: 1rem;
     display: block;
+    color: ${props => props.theme["base-title"]};
+    font-weight: 700;
+    font-size: 1.5rem;
   }
 `
 
@@ -31,4 +34,8 @@ export const IconsContainer = styled.div`
     margin-right: 0.5rem;
     color: ${props => props.theme["base-label"]};
   }
+`
+
+export const BodyContainer = styled.body`
+  padding: 2rem;
 `
