@@ -12,7 +12,7 @@ export interface ProfileProps {
   bio: string;
   company: string;
   followers: number;
-  login: string;
+  username: string;
 }
 
 export function Profile() {
@@ -26,7 +26,7 @@ export function Profile() {
       bio: responseProfile.data.bio || '',
       company: responseProfile.data.company || '',
       followers: responseProfile.data.followers || 0,
-      login: responseProfile.data.login || '',
+      username: responseProfile.data.login || '',
     }
     setProfile(profileObject);
   }
@@ -47,7 +47,7 @@ export function Profile() {
           <span>{profile.bio}</span>
         </div>
         <IconsContainer>
-          <div><FontAwesomeIcon icon={faGithub} />{profile.login}</div>
+          <div><FontAwesomeIcon icon={faGithub} />{profile.username}</div>
           <div><FontAwesomeIcon icon={faBuilding} />{profile.company}</div>
           <div><FontAwesomeIcon icon={faUserGroup} />{profile.followers} seguidores</div>
         </IconsContainer>
