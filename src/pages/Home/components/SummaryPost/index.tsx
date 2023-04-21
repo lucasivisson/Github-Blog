@@ -4,34 +4,29 @@ import moment from 'moment';
 import 'moment/dist/locale/pt-br';
 
 export interface IssuesProps {
-  issueId: string;
+  title: string;
+  issueId: number;
   body: string;
   createdAt: string;
 }
 
-export function SummaryPost({ issueId, body, createdAt }: IssuesProps) {
-  let strings = []
-  const stringsWithoutBackslashR = body.split('\r');
-  for(let string of stringsWithoutBackslashR) {
-    const stringsWithoutBackslashN = string.split('\n');
-    for(let finalString of stringsWithoutBackslashN) {
-      strings.push(finalString);
-    }
-  }
+export function SummaryPost({ issueId, body, createdAt, title }: IssuesProps) {
+  const strings = body.split('\r');
+
   let subtitle = '';
   for(let string of strings) {
-    if(string !== strings[0] && string !== '') {
+    if( string !== '' && string !== '\n' && string !== '\r') {
       subtitle = string;
       break;
     }
   }
 
   return (
-    <SummaryPostContainer to={`post/${issueId}`}>
+    <SummaryPostContainer to={`issue/${issueId}`}>
       <TitleSummaryPostContainer>
         <span>
           <ReactMarkdown>
-            {strings[0]}
+            {title}
           </ReactMarkdown>
         </span>
         <span>{moment(createdAt).locale('pt-br').fromNow()}</span>
