@@ -3,12 +3,15 @@ import { defaultTheme } from './styles/themes/default'
 import { GlobalStyle } from './styles/global'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './Router'
+import { IssueContextProvider } from './contexts/IssueContext'
 
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <RouterProvider router={router}/>
-      <GlobalStyle/>
+      <IssueContextProvider>
+        <RouterProvider router={router}/>
+        <GlobalStyle/>
+      </IssueContextProvider>
     </ThemeProvider>
   )
 }
