@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.div`
-  width: 60rem;
+  max-width: 60rem;
 `
 
 export const MainContainer = styled.main`

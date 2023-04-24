@@ -11,5 +11,6 @@ export const DefaultLayoutContainer = styled.div`
 export const OutletContainer = styled.div`
   max-width: 60rem;
   margin: -6rem auto 0;
+  padding: 1rem;
   position: relative;
 `

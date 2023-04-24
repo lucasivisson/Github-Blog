@@ -39,7 +39,7 @@ export function Post() {
       username: responseIssue.data.user.login || '',
     }
     setIssue(issueObject);
-    setTimeout(() => {setLoading(false)}, 5000);
+    setLoading(false)
   }
 
   useEffect(() => {
