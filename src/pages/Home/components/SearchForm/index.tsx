@@ -5,7 +5,7 @@ import { useIssueContext } from "../../../../contexts/IssueContext";
 
 export function SearchForm() {
   const { register, watch } = useForm();
-  const { loadIssues } = useIssueContext();
+  const { loadIssues, numberOfIssues } = useIssueContext();
   const stringToSearch = watch('search');
 
   useEffect(() => { 
@@ -29,7 +29,7 @@ export function SearchForm() {
     <SearchFormContainer>
       <div>
         <span>Publicações</span>
-        <span>6 publicações</span>
+        <span>{numberOfIssues} publicações</span>
       </div>
       <form action="">
         <input type="text" placeholder='Buscar conteúdo' {...register("search")}/>

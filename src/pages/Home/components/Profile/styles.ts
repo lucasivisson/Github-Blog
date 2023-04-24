@@ -12,6 +12,26 @@ export const HeaderContainer = styled.header`
     width: 10rem;
     border-radius: 0.6rem;
   }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+    gap: 1rem;
+
+    img {
+      width: 8rem;
+      height: 8rem;
+    }
+  }
+
+  @media (max-width: 460px) {
+    padding: 1rem;
+    gap: 1rem;
+
+    img {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
 `
 
 export const HeaderContainerSpinner = styled.header`
@@ -55,6 +75,10 @@ export const TitleContainer = styled.div`
     font-weight: 700;
     font-size: 1.5rem;
   }
+
+  @media (max-width: 600px) {
+    align-items: center;
+  }
 `
 
 export const IconsContainer = styled.div`
@@ -65,5 +89,13 @@ export const IconsContainer = styled.div`
   svg {
     margin-right: 0.5rem;
     color: ${props => props.theme["base-label"]};
+  }
+
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+
+    svg {
+      margin-right: 0.2rem;
+    }
   }
 `

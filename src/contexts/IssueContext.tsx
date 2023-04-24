@@ -10,6 +10,7 @@ type IssuesProps = {
 
 type IssueContextType = {
   issues: IssuesProps[],
+  numberOfIssues: number,
   loadIssues: (queryParam?: string) => void;
 }
 
@@ -25,6 +26,7 @@ export const useIssueContext = () => {
 
 export function IssueContextProvider({ children }: IssueContextProviderProps) {
   const [issues, setIssues] = useState<IssuesProps[]>({} as IssuesProps[]);
+  const [numberOfIssues, setNumberOfIssues] = useState<number>(0);
 
   async function loadIssues(queryParam?: string | '') {
     const responseIssues = await api.get(`search/issues?q=${queryParam}%20repo:lucasivisson/Github-Blog`);
@@ -39,7 +41,8 @@ export function IssueContextProvider({ children }: IssueContextProviderProps) {
       issuesArray.push(issueObject);
     }
     setIssues([...issuesArray]);
+    setNumberOfIssues(issuesArray.length);
   }
 
-  return (<IssueContext.Provider value={{issues, loadIssues}}>{children}</IssueContext.Provider>)
+  return (<IssueContext.Provider value={{issues, numberOfIssues, loadIssues}}>{children}</IssueContext.Provider>)
 }

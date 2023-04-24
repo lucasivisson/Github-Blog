@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const SearchFormContainer = styled.div`
   width: 100%;
 
+  @media (max-width: 600px) {
+    margin-bottom: 2rem;
+  }
+
   input {
     width: 100%;
     border-radius: 0.4rem;

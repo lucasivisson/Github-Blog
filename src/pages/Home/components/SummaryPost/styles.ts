@@ -2,12 +2,16 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const SummaryPostContainer = styled(Link)`
-  width: 48.5%;
+  width: 100%;
   border-radius: 0.6rem;
   background: ${props => props.theme["base-post"]};
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   padding: 2rem;
   color: ${props => props.theme["base-text"]};
+
+  @media (max-width: 768px) {
+    margin-bottom: 0.5rem;
+  }
 
   &:hover {
     text-decoration: none;
