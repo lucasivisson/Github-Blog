@@ -9,6 +9,7 @@ import { api } from "../../lib/axios";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import moment from 'moment';
 import { Spinner } from "react-activity";
+import remarkGfm from 'remark-gfm'
 import 'moment/dist/locale/pt-br';
 import "react-activity/dist/library.css";
 
@@ -64,7 +65,7 @@ export function Post() {
           </InfoContainer>
         </HeaderContainer>
         <BodyContainer>
-          <ReactMarkdown>{issue.body}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{issue.body}</ReactMarkdown>
         </BodyContainer>
       </>
     )
@@ -77,7 +78,7 @@ export function Post() {
           <Spinner color="#727981" size={32} speed={1} animating={true} />
         </HeaderContainerSpinner>
         <BodyContainer>
-          <ReactMarkdown>{issue.body}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{issue.body}</ReactMarkdown>
         </BodyContainer>
       </>
     )
