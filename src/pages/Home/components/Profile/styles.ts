@@ -8,10 +8,6 @@ export const HeaderContainer = styled.header`
   gap: 2rem;
   margin-bottom: 5rem;
 
-  /* @media (max-width: 375px) {
-    height: 14rem;
-  } */
-
   img {
     width: 10rem;
     border-radius: 0.6rem;
@@ -40,7 +36,6 @@ export const HeaderContainer = styled.header`
 
 export const HeaderContainerSpinner = styled.header`
   background-color: ${props => props.theme["base-profile"]};
-  /* height: 14rem; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,7 +47,6 @@ export const InfoContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 
   span {
     line-height: 160%;
