@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import { ReactNode, createContext, useCallback, useContext, useState } from "react";
 import { api } from "../lib/axios";
 
 type IssuesProps = {
@@ -28,7 +28,7 @@ export function IssueContextProvider({ children }: IssueContextProviderProps) {
   const [issues, setIssues] = useState<IssuesProps[]>({} as IssuesProps[]);
   const [numberOfIssues, setNumberOfIssues] = useState<number>(0);
 
-  async function loadIssues(queryParam?: string | '') {
+  const loadIssues = useCallback(async (queryParam?: string) => {
     const responseIssues = await api.get(`search/issues?q=${queryParam}%20repo:lucasivisson/Github-Blog`);
     let issuesArray: IssuesProps[] = [];
     for(let issue of responseIssues.data.items) {
@@ -42,7 +42,7 @@ export function IssueContextProvider({ children }: IssueContextProviderProps) {
     }
     setIssues([...issuesArray]);
     setNumberOfIssues(issuesArray.length);
-  }
+  }, []);
 
   return (<IssueContext.Provider value={{issues, numberOfIssues, loadIssues}}>{children}</IssueContext.Provider>)
 }

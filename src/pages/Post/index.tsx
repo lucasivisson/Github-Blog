@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { HeaderContainer, IconsContainer, InfoContainer, BodyContainer, LinksContainer, HeaderContainerSpinner } from "./styles";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { api } from "../../lib/axios";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import moment from 'moment';
@@ -28,7 +28,7 @@ export function Post() {
   const [issue, setIssue] = useState<IssueProps>({} as IssueProps); 
   const [loading, setLoading] = useState<boolean>(false);
 
-  async function loadIssue() {
+  const loadIssue = useCallback(async () => {
     setLoading(true);
     const responseIssue = await api.get(`repos/lucasivisson/Github-Blog/issues/${issueId}`);
     const issueObject: IssueProps = {
@@ -41,7 +41,7 @@ export function Post() {
     }
     setIssue(issueObject);
     setLoading(false)
-  }
+  }, []);
 
   useEffect(() => {
     loadIssue();

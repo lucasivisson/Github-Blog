@@ -40,6 +40,7 @@ export const HeaderContainerSpinner = styled.header`
   align-items: center;
   justify-content: center;
   margin-bottom: 5rem;
+  height: 14rem;
 `;
 
 export const InfoContainer = styled.div`

@@ -3,7 +3,7 @@ import { faBuilding, faUserGroup, faArrowUpRightFromSquare } from "@fortawesome/
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { HeaderContainer, TitleContainer, IconsContainer, InfoContainer, HeaderContainerSpinner } from "./styles";
 import { api } from "../../../../lib/axios";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Spinner } from "react-activity";
 import "react-activity/dist/library.css";
@@ -21,7 +21,7 @@ export function Profile() {
   const [profile, setProfile] = useState<ProfileProps>({} as ProfileProps);
   const [loading, setLoading] = useState<boolean>(false);
 
-  async function loadProfile() {
+  const loadProfile = useCallback(async () => {
     setLoading(true);
     const responseProfile = await api.get('users/lucasivisson');
     const profileObject: ProfileProps = {
@@ -34,7 +34,7 @@ export function Profile() {
     }
     setProfile(profileObject);
     setLoading(false);
-  }
+  }, [])
 
   useEffect(() => {
     loadProfile();
